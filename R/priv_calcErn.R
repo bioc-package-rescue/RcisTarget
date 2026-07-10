@@ -44,7 +44,7 @@
   maxRankExtra <- maxRank+nMean
   gsRankings.asMat <- as.matrix(gsRankings) # Much faster!
   gsRankings.asMat[gsRankings.asMat>maxRankExtra] <- NA
-  globalMat <- matrix(0, nrow=max(nrow(gsRankings),max(gsRankings.asMat, na.rm=T)), ncol=maxRankExtra) #  nrow=nrow(gsRankings): can be out of range, add extra rows and subset at the end
+  globalMat <- matrix(0, nrow=max(nrow(gsRankings),max(gsRankings.asMat, na.rm=TRUE)), ncol=maxRankExtra) #  nrow=nrow(gsRankings): can be out of range, add extra rows and subset at the end
   
   # x <- x[seq_len(min(length(x), nrow(globalMat)))] # or: # if(nrow(globalMat) < length(x)) x <- x[seq_len(nrow(globalMat))] # cannot be in the loop... too slow!
   for(i in 1:nrow(gsRankings)) # (TO DO: Paralellize?)

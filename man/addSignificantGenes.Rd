@@ -255,9 +255,10 @@ geneLists <- list(hypoxia=read.table(txtFile, stringsAsFactors=FALSE)[,1])
 ## (See the vignette for URLs to download)
 # motifRankings <- importRankings("hg19-500bp-upstream-7species.mc9nr.feather")
 
+if (requireNamespace("RcisTarget.hg19.motifDBs.cisbpOnly.500bp", quietly = TRUE)) {
+
 ## For this example we will use a SUBSET of the ranking/motif databases:
-library(RcisTarget.hg19.motifDBs.cisbpOnly.500bp)
-data(hg19_500bpUpstream_motifRanking_cispbOnly)
+data(hg19_500bpUpstream_motifRanking_cispbOnly, package="RcisTarget.hg19.motifDBs.cisbpOnly.500bp")
 motifRankings <- hg19_500bpUpstream_motifRanking_cispbOnly
 
 ## Motif - TF annotation:
@@ -323,8 +324,7 @@ onlyGenes <- getSignificantGenes(geneSet=geneLists$hypoxia,
                             plotCurve=TRUE,
                             rankings=motifRankings,
                             method="aprox")
-
-
+}
 }
 \seealso{
 Previous step in the workflow: \code{\link{addMotifAnnotation}}.

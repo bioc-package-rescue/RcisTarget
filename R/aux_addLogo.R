@@ -94,7 +94,7 @@ showLogo <- function(motifEnrDT,
       stop("Please indicate the column containing the motif id (argument 'motifCol') or set it to NULL.")
     }
     # TODO 
-    met <- met[grep("transfac_pro__", met[[motifCol]], invert = T),]
+    met <- met[grep("transfac_pro__", met[[motifCol]], invert = TRUE),]
   }
   
   # For numeric columns, show only the number of significant digits...
@@ -106,7 +106,7 @@ showLogo <- function(motifEnrDT,
   if(!is.null(colsToShow)) {
     colsToShow <- unique(unname(unlist(colsToShow)))
     colsToShow <- colsToShow[which(colsToShow %in% colnames(met))]
-    met <- met[, colsToShow, with=F]
+    met <- met[, colsToShow, with=FALSE]
   }
   
   # Show...
