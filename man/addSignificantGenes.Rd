@@ -302,16 +302,16 @@ motifEnr_wIncidMat <- addSignificantGenes(motifEnrichmentTable,
                 genesFormat = "incidMatrix")
 
 motifEnr_wIncidMat <- as.data.frame(motifEnr_wIncidMat)
-which(colnames(motifEnr_wIncidMat) == "rankAtMax")
+rankAtMaxIdx <- which(colnames(motifEnr_wIncidMat) == "rankAtMax")
 
-incidMat <- motifEnr_wIncidMat[,8:ncol(motifEnr_wIncidMat)]
+incidMat <- as.matrix(motifEnr_wIncidMat[, (rankAtMaxIdx + 1):ncol(motifEnr_wIncidMat)])
 rownames(incidMat) <- motifEnr_wIncidMat[,"motif"]
 incidMat <- incidMat[, colSums(incidMat)>0, drop=FALSE]
 
 # Plot as network
 par(mfrow=c(1,1))
 library(igraph)
-plot(graph.incidence(incidMat))
+plot(graph_from_biadjacency_matrix(incidMat))
 
 ###############################################################
 # Alternative method: getSignificantGenes()
