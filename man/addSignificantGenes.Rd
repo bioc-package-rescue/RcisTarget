@@ -325,6 +325,7 @@ onlyGenes <- getSignificantGenes(geneSet=geneLists$hypoxia,
                             rankings=motifRankings,
                             method="aprox")
 }
+}
 \seealso{
 Previous step in the workflow: \code{\link{addMotifAnnotation}}.
 
