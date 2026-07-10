@@ -14,11 +14,13 @@
 #' \code{vignette("RcisTarget")}
 #'
 #' @examples
-#' \dontrun{
-#'  ## To apply on a list of regionSets:
-#'  regionSets_db <- lapply(regionSets, function(x) 
-#'     convertToTargetRegions(queryRegions=x, targetRegions=dbRegionsLoc))
-#'  }
+#' # Create mock query and target regions
+#' library(GenomicRanges)
+#' queryRegions <- GRanges("chr1", IRanges(start = c(10, 100), end = c(50, 150)))
+#' targetRegions <- GRanges("chr1", IRanges(start = c(5, 80, 200), end = c(45, 120, 250)))
+#' 
+#' # Convert query regions to target regions
+#' convertToTargetRegions(queryRegions = queryRegions, targetRegions = targetRegions)
 #' @rdname convertToTargetRegions
 #' @importFrom methods isClass
 #' @importFrom GenomeInfoDb keepSeqlevels

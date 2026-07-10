@@ -28,8 +28,22 @@ For \bold{human/mouse} the region locations are stored in a separate object
 (i.e. \code{}). This function is not needed.
 }
 \examples{
-\dontrun{
-featherFilePath <- "~/databases/dm6-regions-11species.mc9nr.feather"
-dbRegionsLoc <- getDbRegionsLoc(featherFilePath)
-}
+library(arrow)
+# Create a dummy data frame with drosophila-style region column names
+df <- data.frame(
+  features = c("motif1", "motif2"),
+  `motif1__chr3L:1000-2000` = c(1, 2),
+  `motif2__chr3L:3000-4000` = c(3, 4),
+  check.names = FALSE
+)
+
+# Write to a temporary feather file
+tmpFile <- tempfile(fileext = ".feather")
+write_feather(df, tmpFile)
+
+# Get the region locations
+getDbRegionsLoc(tmpFile)
+
+# Clean up
+file.remove(tmpFile)
 }

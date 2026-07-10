@@ -107,8 +107,6 @@ that are significantly over-represented in the gene-set.
 # RcisTarget workflow for advanced users:
 # Running the workflow steps individually
 
-\dontrun{
-  
 ##################################################
 #### Load your gene sets
 # As example, the package includes an Hypoxia gene set:
@@ -118,8 +116,9 @@ geneLists <- list(hypoxia=read.table(txtFile, stringsAsFactors=FALSE)[,1])
   
 #### Load databases
 ## Motif rankings: Select according to organism and distance around TSS
-## (See the vignette for URLs to download)
-motifRankings <- importRankings("hg19-500bp-upstream-7species.mc9nr.feather")
+library(RcisTarget.hg19.motifDBs.cisbpOnly.500bp)
+data(hg19_500bpUpstream_motifRanking_cispbOnly)
+motifRankings <- hg19_500bpUpstream_motifRanking_cispbOnly
 
 ## Motif - TF annotation:
 data(motifAnnotations_hgnc_v9) # human TFs (for motif collection 9)
@@ -141,8 +140,6 @@ motifEnrichmentTable_wGenes <- addSignificantGenes(motifEnrichmentTable,
                                                    geneSets=geneLists,
                                                    rankings=motifRankings,
                                                    method="aprox")
-
-}
 }
 \seealso{
 Next step in the workflow: \code{\link{addMotifAnnotation}}.
