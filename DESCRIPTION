@@ -64,4 +64,3 @@ biocViews: GeneRegulation, MotifAnnotation, Transcriptomics, Transcription,
 LazyData: FALSE
 VignetteBuilder: knitr
 RoxygenNote: 7.2.1
-PackageStatus: Deprecated
