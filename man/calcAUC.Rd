@@ -132,7 +132,6 @@ if (requireNamespace("RcisTarget.hg19.motifDBs.cisbpOnly.500bp", quietly = TRUE)
                            motifAnnot=motifAnnotation)
 
   # Step 3 (optional). Identify genes that have the motif significantly enriched
-  # (i.e. genes from the gene set in the top of the ranking)
   motifEnrichmentTable_wGenes <- addSignificantGenes(motifEnrichmentTable,
                                                      geneSets=geneLists,
                                                      rankings=motifRankings,
