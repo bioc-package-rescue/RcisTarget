@@ -20,7 +20,7 @@ e.g.
 data.table with the annotations of the motifs to transcription factors
 
 Columns:
- \itemize{
+ \describe{
    \item{\bold{motif}: }{Motif ID.}
    \item{\bold{TF}: }{Transcription factor (or inferred gene).}
    \item{\bold{directAnnotation}, \bold{inferred_Orthology}, 
@@ -40,7 +40,7 @@ Columns:
 RcisTarget package includes the motif annotations for the rankings 
 using the latest motif collection (version 10 clustered, 19895 motifs): 
 
-\itemize{
+\describe{
 \item{Human: }{ \code{data(motifAnnotations_hgnc)}}
 \item{Mouse: }{ \code{data(motifAnnotations_mgi)}}
 \item{Fly: }{ \code{data(motifAnnotations_dmel)}}

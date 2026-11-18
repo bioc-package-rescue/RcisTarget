@@ -5,7 +5,7 @@
 #' @aliases dbRegionsLoc_hg19_v9 dbRegionsLoc_mm9_v9
 #' @title Genomic location for the database regions
 #' @description 
-#' \itemize{
+#' \describe{
 #' \item{\bold{dbRegionsLoc_hg19_v9}: }{Contains the location for \bold{HUMAN} regions 
 #'   in the database \bold{hg19-regions-9species.all_regions.mc9nr} (hg19,refseq_r45, motif collection v9).
 #'   
@@ -16,7 +16,7 @@
 #' 
 #' Source: \emph{mm9__refseq_r70__regulatory_regions.regionid-location.bed}}
 #' 
-#'\item{For \bold{drosophila}, use the function \code{\link{getDbRegionsLoc}}}
+#'\item{\bold{drosophila}: }{Use the function \code{\link{getDbRegionsLoc}}}
 #' }
 #' @docType data
 #' @seealso https://resources.aertslab.org/cistarget
