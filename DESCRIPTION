@@ -61,6 +61,7 @@ License: GPL-3
 BugReports: https://github.com/aertslab/RcisTarget/issues
 biocViews: GeneRegulation, MotifAnnotation, Transcriptomics, Transcription,
     GeneSetEnrichment, GeneTarget
+Encoding: UTF-8
 LazyData: FALSE
 VignetteBuilder: knitr
-RoxygenNote: 7.2.1
+Config/roxygen2/version: 8.1.1
