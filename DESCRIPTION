@@ -22,7 +22,7 @@ Description: RcisTarget identifies transcription factor binding
     RcisTarget predicts the candidate target genes 
     (i.e. genes in the gene-set that are ranked above the leading edge).
 URL: http://scenic.aertslab.org
-Depends: R (>= 3.4)
+Depends: R (>= 4.6.0)
 Imports:
     AUCell (>= 1.1.6),
     BiocGenerics,
