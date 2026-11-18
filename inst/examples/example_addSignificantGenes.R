@@ -14,9 +14,11 @@ geneLists <- list(hypoxia=read.table(txtFile, stringsAsFactors=FALSE)[,1])
 # motifRankings <- importRankings("hg19-500bp-upstream-7species.mc9nr.feather")
 # data("motifAnnotations_hgnc") # human TFs (for motif collection 10)
 
+if (requireNamespace("RcisTarget.hg19.motifDBs.cisbpOnly.500bp", quietly = TRUE)) {
+
 ## For this example we will use a SUBSET of the ranking/motif databases:
-library(RcisTarget.hg19.motifDBs.cisbpOnly.500bp)
-data(hg19_500bpUpstream_motifRanking_cispbOnly)
+data(hg19_500bpUpstream_motifRanking_cispbOnly,
+     package="RcisTarget.hg19.motifDBs.cisbpOnly.500bp")
 motifRankings <- hg19_500bpUpstream_motifRanking_cispbOnly
 
 ## Motif - TF annotation:
@@ -70,8 +72,8 @@ incidMat <- incidMat[, colSums(incidMat)>0, drop=FALSE]
 
 # Plot as network
 par(mfrow=c(1,1))
-library(igraph)
-plot(graph_from_incidence_matrix(incidMat))
+if (requireNamespace("igraph", quietly = TRUE))
+    plot(igraph::graph_from_biadjacency_matrix(incidMat))
 
 ###############################################################
 # Alternative method: getSignificantGenes()
@@ -82,5 +84,4 @@ onlyGenes <- getSignificantGenes(geneSet=geneLists$hypoxia,
                             plotCurve=TRUE,
                             rankings=motifRankings,
                             method="aprox")
-
-
+}
